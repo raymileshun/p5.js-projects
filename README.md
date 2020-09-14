@@ -1,1 +1,2 @@
-# p5.js-projects
+Ide gyűjtöttem azokat a projekteket, amiket a p5.js nevű frameworkkel készítettem.
+Némelyik projekt más repositoryban is megtalálható, viszont könnyebbnek gondoltam egybe gyűjteni ezeket a projektet. (a kódjuk már úgysem fog változni a legtöbbnek)
