@@ -20,7 +20,11 @@ function draw() {
   background(0);
   drawCoordinateLines();
   drawClassIds();
-  let closestPointsArray=getKClosestIndexes();
+  
+  let distances=getDistancesForPoints()
+  let closestPointsArray=getKClosestIndexes(distances);
+  
+  // let closestPointsArray=getKClosestIndexes();
   for(let i=0;i<pointsArray.length;i++){
     if(closestPointsArray.includes(i)){
         strokeWeight(5)
@@ -32,9 +36,11 @@ function draw() {
 
     noStroke()
     fill(255,0,0)
-    text(parseInt(calculatePointDistanceFromMouse(pointsArray[i])),pointsArray[i].x,pointsArray[i].y)
+    // text(parseInt(calculatePointDistanceFromMouse(pointsArray[i])),pointsArray[i].x,pointsArray[i].y)
+	text(parseInt(Math.sqrt(distances[i][1])),pointsArray[i].x,pointsArray[i].y)
   }
   getPointsRatio(arrayOfPointsUsedForRatioCalculation)
+
 }
 
 function drawCoordinateLines(){
@@ -111,29 +117,77 @@ function getOccurencesInArray(array,searchableElement){
 }
 
 
-
-
-function getKClosestIndexes(){
+function getDistancesForPoints(){
   let distanceArray=[];
-  let closestArray=[];
   for(let i=0;i<pointsArray.length;i++){
     distanceArray.push([i,calculatePointDistanceFromMouse(pointsArray[i])])
   }
+  return distanceArray;
+}
 
-  distanceArray.sort(function(a,b){
-    return a[1]-b[1]
-  });
-
-
+function getKClosestIndexes(distanceArray){
+  let closestArray=[];
+  let distanceCopy=distanceArray.slice()
+  
   for(let i=0;i<k;i++){
-    closestArray[i]=distanceArray[i][0];
+	 let index=getMinimalElementIndexFrom2DArray(distanceCopy)
+	 // let spliceableIndex;
+	 for(let j=0;j<distanceCopy.length;j++){
+		if(distanceCopy[j][0]===index){
+			// spliceableIndex=j;
+			distanceCopy.splice(j,1)
+			break;
+		}
+	 }
+	 // distanceCopy.splice(spliceableIndex,1)
+	 closestArray.push(index)
   }
   return closestArray;
+}
 
+function getMinimalElementIndexFrom2DArray(array){
+	let minimalIndex=array[0][0];
+	let minimalElement=array[0][1]
+	if(array.length===1){
+		return minimalIndex
+	}
+	for(let i=1;i<array.length;i++){
+		if(array[i][1]<minimalElement){
+			minimalElement=array[i][1]
+			minimalIndex=array[i][0]
+		}
+	}
+	return minimalIndex
 }
 
 
 
+// function getKClosestIndexes(){
+  // let distanceArray=[];
+  // let closestArray=[];
+  // for(let i=0;i<pointsArray.length;i++){
+    // distanceArray.push([i,calculatePointDistanceFromMouse(pointsArray[i])])
+  // }
+
+  // distanceArray.sort(function(a,b){
+    // return a[1]-b[1]
+  // });
+
+
+  // for(let i=0;i<k;i++){
+    // closestArray[i]=distanceArray[i][0];
+  // }
+  // return closestArray;
+
+// }
+
+
+
 function calculatePointDistanceFromMouse(pnt){
-  return dist(mouseX,mouseY,pnt.x,pnt.y)
+  // return dist(mouseX,mouseY,pnt.x,pnt.y)
+  return distanceSquared(mouseX,mouseY,pnt.x,pnt.y)
+}
+
+function distanceSquared(msX,msY,pointX,pointY){
+	return (msX-pointX)*(msX-pointX)+(msY-pointY)*(msY-pointY)
 }
