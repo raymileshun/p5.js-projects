@@ -1,4 +1,4 @@
-#Az ear clipping algoritmushoz egy vizualizáció
+# Az ear clipping algoritmushoz egy vizualizáció
 
 Még csak work-in-progress, mert nem detektálja ha egy síkidom selfintersecting, illetve a csúcspontokat csak
 óramutató járásával megegyező irányba lehet elhelyezni
