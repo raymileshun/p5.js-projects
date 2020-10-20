@@ -3,4 +3,4 @@
 Még csak work-in-progress, mert nem detektálja ha egy síkidom selfintersecting, illetve a csúcspontokat csak
 óramutató járásával megegyező irányba lehet elhelyezni
 
-Még kis bug van 5-nél kisebb csúcsponttal rendelkező poligonok esetén, mert egy háromszöget duplikál.
+Van még egy kis bug benne, mert a létrehozott belső háromszögek n-2 helyett n-1 méretűek, mert egy háromszöget duplikál

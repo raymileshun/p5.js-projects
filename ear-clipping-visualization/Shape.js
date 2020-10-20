@@ -233,7 +233,6 @@ function Shape(vertices){
     let createdTriangles=[]
     let currentIndex=0;
     let quit=false;
-    let spliceHappened=false
 
     let limit=this.vertices.length*10
     let errorListener=0
@@ -278,8 +277,7 @@ function Shape(vertices){
           if(isTriangleValid(triangle,remainingVertices)){
             createdTriangles.push(triangle)
             remainingVertices.splice(currentIndex,1)
-            spliceHappened=true
-
+            reflexPoints=determineReflexPoints(remainingVertices)
           } else{
             currentIndex++
           }
