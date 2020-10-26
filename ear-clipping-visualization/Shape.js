@@ -44,6 +44,15 @@ function Shape(vertices){
     if(this.concavePoints.length!==0){
       this.innerTriangles=this.triangulatePolygon()
     }
+	if(errorHappened || (this.vertices.length===4 && this.concavePoints.length===3)){
+		this.vertices.reverse()
+		this.concavePoints=determineReflexPoints(this.vertices);
+
+		if(this.concavePoints.length!==0){
+			this.innerTriangles=this.triangulatePolygon()
+		}
+		errorHappened=false
+	}
 
   }
 
