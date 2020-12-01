@@ -1,14 +1,74 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <title>Demó projektek</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
 <body>
 
-<p><a href="ear-clipping-visualization/index.html">Ear Clipping algoritmus vizualizáció</a></p>
-<p><a href="knn-visualizer/index.html">kNN algoritmus vizualizáció 2D-ben</a></p>
-<p><a href="binary-clock/v1/index.html">Bináris óra 1. verzió</a></p>
-<p><a href="binary-clock/v2/index.html">Bináris óra 2. verzió</a></p>
-<p><a href="nonogram-creator/index.html">Nonogram készítő (WORK IN PROGRESS)</a></p>
-<p><a href="normal-distribution-falling-visualisation/index.html">Normális eloszlás "esés" vizualizáció</a></p>
-<p><a href="normal-distribution-population-simulation/index.html">Normális eloszlás populáció szimuláció</a></p>
+<div class="container">         
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="table-width">Projekt</th>
+        <th>Leírás</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="ear-clipping-visualization/index.html">Ear Clipping algoritmus vizualizáció</a></td>
+        <td><div class="description">Az ear clipping algoritmushoz egy vizualizáció</div>
+		<div class="description">A felső téglalapba vehetünk fel a <mark>bal egérgombbal</mark> pontokat, majd ha végeztünk a <strong>síkidom</strong> felrajzolásával, akkor a <mark>"Start"</mark> gombra kattintva elkezdődik a <strong>háromszögekre történő felbontás</strong>.</div>
+		<div class="description">Ezután a <mark>"Következő lépés"</mark> gombot nyomogatva léthatjuk, hogy melyik háromszöget hozza létre a programunk. <strong>Lent pedig azt láthatjuk, hogy melyik "ear" lesz törölve a síkidomból.</strong></div>
+		<div class="description">(Self-intersecting poligonokra még nem jó)</div>
+		</td>
+      </tr>
+      <tr>
+        <td><a href="knn-visualizer/index.html">kNN algoritmus vizualizáció 2D-ben</a></td>
+        <td><div class="description">A lényege, hogy <strong>az egérmutatóhoz legközelebbi 3 pontot megtalálja (k=3).</strong> A pontok különböző csoportokban vannak, mint ahogy egy gépi tanulásos algoritmus modelljénél is.</div>
+		<div class="description">Ezt a vizualizációt a <strong>szakdolgozatomhoz készítettem, amelyben egy kNN klasszifikiáló algoritmuson alapuló képfelismerőt használtam.</strong></div> </td>
+      </tr>
+      <tr>
+        <td><a href="binary-clock/v1/index.html">Bináris óra 1. verzió</a></td>
+        <td>Egy bináris óra objektum-orientált megvalósítással</td>
+      </tr>
+	  <tr>
+        <td><a href="binary-clock/v2/index.html">Bináris óra 2. verzió</a></td>
+        <td>
+		<div class="description">A v2 verzió szétválasztja a különböző mutatókat és külön-külön jeleníti meg binárisan <div>(pl. másdopercmutató a 35-öt nem egy oszlopban fogja 100011-ként megjeleníteni, hanem a 3-at és az 5-öt külön-külön 0011-ként és 0101-ként)</div></div>
+		<div class="description"><strong>Így elég lesz 4 bit egy-egy oszlopban a megjelenítésnél</strong></div></td>
+      </tr>
+	  <tr>
+        <td><a href="nonogram-creator/index.html">Nonogram készítő (WORK IN PROGRESS)</a></td>
+        <td><div class="description">A jövőben ezeket a featureöket tervezem hozzáadni:</div> 
+		<div>- mező növelése inputtal</div>
+		<div>- elkészített nonogram letöltése</div>
+		<div>- lementett nonogram beöltése egy új mezőre</div>
+		<div>- esetleg később "segítségnyújtás" feature</div>
+		<div>- Websocketekkel összekötni, így az elkészített nonogramot másnak át lehetne küldeni</div></td>
+      </tr>
+	  <tr>
+        <td><a href="normal-distribution-falling-visualisation/index.html">Normális eloszlás "esés" vizualizáció</a></td>
+        <td><div class="description"><strong>A fenti téglalapba az egér segítségével "labdákat" helyezhetünk el,</strong> amiket a <mark>BAL NYÍl</mark> gombbal engedhetünk el.<div><div class="description"> <strong>A labdák normális eloszlást fognak felvenni.</strong></div>
+
+<div class="description">A matematikai statisztika tárgyamhoz készítettem ezt a programot.</div></td>
+      </tr>
+	   <tr>
+        <td><a href="normal-distribution-population-simulation/index.html">Normális eloszlás populáció szimuláció</a></td>
+        <td>
+
+<div class="description">Egyszerű populáció szimuláció a normális eloszlás magyarázásához.</div>
+
+Ezt a programot is a matematikai statisztika tárgyamhoz készítettem.
+</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 
 </body>
 </html>
